@@ -5950,6 +5950,9 @@ show_pic(blended)
 
 ![png](output_20_0.png)
 
+```python
+# This section uses OpenCV for fundamental image processing operations. It includes loading images in different color spaces (BGR, RGB, HSV, HLS, and grayscale), displaying them using #Matplotlib, and performing transformations such as resizing, flipping, and blending multiple images. Additionally, it covers image overlay techniques, where a smaller image is placed onto a #larger one using NumPy indexing. The section also explores thresholding methods, including binary, truncation, and adaptive thresholding, to enhance contrast and segment specific parts of an #image, making it useful for object detection and image preprocessing.
+```
 
 ## CORNER DETECTION
 
@@ -6046,21 +6049,7 @@ plt.imshow(green_chess)
 ```
 
 
-    ---------------------------------------------------------------------------
-
-    ValueError                                Traceback (most recent call last)
-
-    <ipython-input-33-0af6118dd22e> in <module>
-          3 dst = cv2.dilate(dst, None)
-          4 
-    ----> 5 green_chess[dst>0.01*dst.max()] = [255, 0, 0]
-          6 
-          7 plt.imshow(green_chess)
-
-
-    ValueError: NumPy boolean array indexing assignment cannot assign 3 input values to the 2948 output values where the mask is true
-
-
+   
 
 ```python
 corners = cv2.goodFeaturesToTrack(green_chess, 64, 0.01, 10)
@@ -6104,8 +6093,18 @@ plt.imshow(real_chess)
 
 ![png](output_9_1.png)
 
+```python
+# This section detects "corners" in two different chessboard images using OpenCV.
+
+# Load and convert images** to grayscale for better corner detection. Apply the Harris Corner Detector** on the
+# green chessboard image to find corners, but an error occurs because the image format isn't compatible with color marking
+# Use the Good Features to Track method** to detect and mark corners in both chessboard images. Draw small circles on detected corners to highlight them.
+# Display the images** with detected corners marked in red for the green chessboard and green for the real chessboard.
+# This technique is useful in **computer vision tasks** where recognizing shapes, edges, and objects is needed.
+```
 
 ## EDGE DETECTION
+
 
 ```python
 import cv2
@@ -6502,6 +6501,19 @@ display(flann_matches)
 
 ```
 
+```python
+# This section compares two images using OpenCV to find where the Froot Loops cereal appears in a larger cereal image. 
+
+# Steps:
+# Loading and display images** in grayscale for better feature detection. Find key features in both images using ORB and SIFT, which detect important points in an image. Match
+# features between the two images using different matching methods (Brute Force Matcher and FLANN).
+# Filter out weak matches** to keep only the strongest matches. Draw lines to show matching points between the two images.
+```
+
+
+
+
+
 
 ## OBJECT DETECTION
 
@@ -6668,4 +6680,18 @@ for m in methods:
 
 ```python
 
+```
+
+```python
+# This section is trying to find a smaller image (the "template") inside a bigger image by using a technique called **template matching** in OpenCV.  
+# Here’s what’s happening step by step:
+# - First, the images are loaded and converted so they display properly.
+# - The size (width, height, and color channels) of both images is printed to make sure they match up correctly.
+# - Different methods are tested to compare the smaller image with different parts of the bigger image.
+# - The program looks at the results and decides where the best match is by checking for the highest or lowest value (depending on the method used).
+# - A rectangle is drawn around the area where the best match was found.
+# - Finally, two images are shown: 
+#   1. A **heatmap** that shows how well different parts of the big image match the small one.
+#   2. The **big image with the detected template** outlined in a box.
+# - This process is repeated for multiple matching methods to see which one works best.
 ```
