@@ -6488,6 +6488,7 @@ draw_params = dict(matchColor = (0,255,0),
 
 
 ```python
+# flann based matching; fast librarying for nearst neighbors; faster than sift
 flann_matches = cv2.drawMatchesKnn(froot_loops, kp1,  cereals, kp2, matches, None, **draw_params)
 display(flann_matches)
 ```
