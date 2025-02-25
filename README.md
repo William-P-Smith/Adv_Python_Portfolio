@@ -1904,7 +1904,16 @@ print("%s %i %i %i %i" % (rc.id, len(rc), len(rc.features), len(rc.dbxrefs), len
 # We can establish the id name to avoid sequence confusion.
 ```
 
-
+```python
+# This section uses **Biopython** to work with DNA sequences by creating and annotating
+# sequences** with IDs, descriptions, and quality scores.Reading GenBank and FASTA files
+# to extract sequence data. Analyzing metadata** like organism names, gene locations,
+# and sequence features. Extracting and modifying specific sequence regions
+# for focused study
+# Reformatting sequences** into GenBank format and shifting positions & generating
+# reverse complements for sequence analysis
+# Genome analysis, gene identification, and bioinformatics research
+```
 ## SEQUENCE I/O
 
 ```python
