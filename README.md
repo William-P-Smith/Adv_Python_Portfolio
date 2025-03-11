@@ -6677,16 +6677,11 @@ for m in methods:
 ```
 
 ```python
-# This section is trying to find a smaller image inside a bigger image by using a technique called
-# "template matching" in OpenCV. First, the images are
-# loaded and converted so they display properly.
-# The size (width, height, and color channels) of both images is printed to make sure they match
-# up correctly.
-# Different methods are tested to compare the smaller image with different parts of the bigger image.
-# The program looks at the results and decides where the best match is by checking for the highest
-# or lowest value (depending on the method used).
-# A rectangle is drawn around the area where the best match was found.
-# Finally, two images are shown:  A heatmapthat shows how well different parts of the big image
-# match the small one. The big image with the detected template** outlined in a box.
+# "template matching" in OpenCV
+#images are loaded and converted so they display properly
+# Size of both images printed to make sure they match up correctly
+# Different methods are tested to compare the smaller image with different parts of the bigger image
+# Two images shown:  A heatmap that shows how well different parts of the big image
+# match the small one, and the big image with the detected template outlined in a box.
 # This process is repeated for multiple matching methods to see which one works best.
 ```
