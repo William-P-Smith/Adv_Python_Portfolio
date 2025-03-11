@@ -5302,6 +5302,7 @@ import cv2
 
 
 ```python
+# imported jpeg of random mushrooms as example
 img = cv2.imread("Dawg.jpg")
 ```
 
@@ -5352,6 +5353,7 @@ plt.imshow(img)
 
 
 ```python
+# Converting image to original color from Blue Green Red to Red Green Blue
 fix_img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 ```
 
@@ -5373,6 +5375,7 @@ plt.imshow(fix_img)
 
 
 ```python
+# Looking at image pixel size
 img_gray = cv2 = cv2.imread("Dawg.jpg", cv2.IMREAD_GRAYSCALE)
 img_gray.shape
 ```
@@ -5402,6 +5405,7 @@ plt.imshow(img_gray)
 
 
 ```python
+# True gray scale
 plt.imshow(img_gray, cmap = "gray")
 ```
 
@@ -5438,11 +5442,12 @@ plt.imshow(new_img)
 
 
 ```python
-new_img.shape
+# Seeing new size of image in pixels after resizingnew_img.shape
 ```
 
 
 ```python
+# Resizing scale of image, using 0.5, cuts size in half
 w_ratio = 0.5
 h_ratio = 0.5
 
@@ -5463,6 +5468,7 @@ new_img.shape
 
 
 ```python
+#  Flipping image vertically
 flip_img = cv2.flip(fix_img, 0)
 plt.imshow(flip_img)
 ```
@@ -5781,6 +5787,7 @@ img = cv2.imread('rainbow.jpg', 0)
 
 
 ```python
+# Reduced color of image, setting to gray scale
 plt.imshow(img, cmap = 'gray')
 ```
 
@@ -5900,6 +5907,7 @@ show_pic(img_r)
 
 
 ```python
+# raising threshold, increased the contrast
 ret, th1 = cv2.threshold(img_r, 200, 255, cv2.THRESH_BINARY)
 show_pic(th1)
 ```
@@ -5959,9 +5967,7 @@ show_pic(blended)
 
 ![png](output_20_0.png)
 
-```python
-# This section uses OpenCV for fundamental image processing operations. It includes loading images in different color spaces (BGR, RGB, HSV, HLS, and grayscale), displaying them using #Matplotlib, and performing transformations such as resizing, flipping, and blending multiple images. Additionally, it covers image overlay techniques, where a smaller image is placed onto a #larger one using NumPy indexing. The section also explores thresholding methods, including binary, truncation, and adaptive thresholding, to enhance contrast and segment specific parts of an #image, making it useful for object detection and image preprocessing.
-```
+
 
 ## CORNER DETECTION
 
@@ -6048,6 +6054,8 @@ plt.imshow(gray_real_chess, cmap = "gray")
 
 
 ```python
+# Using Harris Corner Detection % playing with values to see how detection changes
+# Also, detecting corners and making red
 gray = np.float32(green_chess)
 dst = cv2.cornerHarris(src = gray, blockSize = 2, ksize = 3, k = 0.04)
 dst = cv2.dilate(dst, None)
@@ -6061,6 +6069,7 @@ plt.imshow(green_chess)
    
 
 ```python
+# Shi-Tomasi Corner Detection
 corners = cv2.goodFeaturesToTrack(green_chess, 64, 0.01, 10)
 ```
 
@@ -6102,15 +6111,6 @@ plt.imshow(real_chess)
 
 ![png](output_9_1.png)
 
-```python
-# This section detects "corners" in two different chessboard images using OpenCV.
-
-# Load and convert images** to grayscale for better corner detection. Apply the Harris Corner Detector** on the
-# green chessboard image to find corners, but an error occurs because the image format isn't compatible with color marking
-# Use the Good Features to Track method** to detect and mark corners in both chessboard images. Draw small circles on detected corners to highlight them.
-# Display the images** with detected corners marked in red for the green chessboard and green for the real chessboard.
-# This technique is useful in **computer vision tasks** where recognizing shapes, edges, and objects is needed.
-```
 
 ## EDGE DETECTION
 
@@ -6167,6 +6167,7 @@ plt.imshow(edges)
 
 
 ```python
+# Printing/finding median color value
 med_value = np.median(img)
 med_value
 ```
@@ -6180,6 +6181,7 @@ med_value
 
 
 ```python
+#Adjusting lower/upper values of threshold
 lower = int(max(0, 0.7*med_value))
 upper = int(max(255, 1.3*med_value))
 
@@ -6201,7 +6203,7 @@ plt.imshow(edges)
 
 
 ```python
-edges = cv2.Canny(image = img, threshold1 = lower, threshold2 = upper + 100)
+# Adding to upper threshold to adjust imageedges = cv2.Canny(image = img, threshold1 = lower, threshold2 = upper + 100)
 plt.imshow(edges)
 ```
 
@@ -6218,6 +6220,7 @@ plt.imshow(edges)
 
 
 ```python
+#  Using blurring effect to adjust image
 blurred_img = cv2.blur(img, ksize = (5,5))
 
 edges = cv2.blur(img, ksize = (5,5))
@@ -6373,7 +6376,7 @@ display(froot_loops_matches)
 
 
 ```python
-sift = cv2.SIFT_create()
+# flann based matching; fast librarying for nearst neighbors; faster than siftsift = cv2.SIFT_create()
 ```
 
 
@@ -6503,24 +6506,6 @@ display(flann_matches)
 
 
 ![png](output_24_0.png)
-
-
-
-```python
-
-```
-
-```python
-# This section compares two images using OpenCV to find where the Froot Loops cereal appears in a larger cereal image. 
-
-# Steps:
-# Loading and display images** in grayscale for better feature detection. Find key features in both images using ORB and SIFT, which detect important points in an image. Match
-# features between the two images using different matching methods (Brute Force Matcher and FLANN).
-# Filter out weak matches** to keep only the strongest matches. Draw lines to show matching points between the two images.
-```
-
-
-
 
 
 
